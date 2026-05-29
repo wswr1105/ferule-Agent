@@ -28,8 +28,17 @@ cp .env.example .env.local
 编辑 `.env.local`：
 
 ```bash
-OPENAI_API_KEY=你的 OpenAI API Key
-OPENAI_MODEL=gpt-4o-mini
+AI_PROVIDER=deepseek
+DEEPSEEK_API_KEY=你的 DeepSeek API Key
+DEEPSEEK_MODEL=deepseek-v4-flash
+```
+
+如需切换到 MiniMax：
+
+```bash
+AI_PROVIDER=minimax
+MINIMAX_API_KEY=你的 MiniMax API Key
+MINIMAX_MODEL=MiniMax-M2.7
 ```
 
 3. 启动开发服务
@@ -55,7 +64,7 @@ npm run dev
 }
 ```
 
-服务端会调用 OpenAI API，并返回前端可直接渲染的结构化 JSON。
+服务端会根据 `AI_PROVIDER` 调用 DeepSeek 或 MiniMax 的 OpenAI 兼容接口，并返回前端可直接渲染的结构化 JSON。
 
 ## 风险关键词
 
